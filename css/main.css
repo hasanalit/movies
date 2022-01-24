@@ -1,3 +1,7 @@
+body {
+  background: #0e1538;
+}
+
 .movies {
   height: 615px;
 }
@@ -28,6 +32,7 @@
 }
 
 .card {
+  background: #394272;
   width: 450px;
   cursor: pointer;
   border-radius: 15px;
@@ -58,13 +63,17 @@
   margin-right: 5px;
 }
 
-.rating-img-section {
-  display: flex;
-  align-items: center;
+.card-img-top {
+  border-radius: 15px 15px 0 0;
 }
 
 .card-text {
   margin-left: 5px;
+}
+
+.rating-img-section {
+  display: flex;
+  align-items: center;
 }
 
 .btn-section {
@@ -112,15 +121,24 @@
   width: 300px;
 }
 
-.search-form-btn {
-  width: 300px;
+.input-color {
+  background-color: transparent;
 }
-/* .form-control {
-  width: 100%;
-  max-width: 500px;
-} */
 
-.positionn {
+.input-color::placeholder {
+  color: #fff;
+}
+
+.search-form-btn {
+  padding: 7px 0;
+  color: #fff;
+  background: #394272;
+  width: 300px;
+  border: none;
+  border-radius: 3px;
+}
+
+.section {
   position: relative;
 }
 

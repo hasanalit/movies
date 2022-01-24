@@ -145,3 +145,11 @@ elOverlay.addEventListener('click', function(evt){
   elOverlay.classList.add('hidden-overlay')
   elInfo.classList.add('hidden')
 })
+
+
+document.addEventListener('keydown', function(evt){
+  if(evt.key === "Escape"){
+    elOverlay.classList.add('hidden-overlay')
+    elInfo.classList.add('hidden')
+  }
+})
