@@ -13,14 +13,25 @@ body {
   margin-top: 2px;
   padding: 0;
   /* width: 100%; */
-  width: 980px;
+  width: 1000px;
   height: 615px;
   overflow-x: auto;
   list-style: none;
 }
 
-.movies__list::-webkit-scrollbar{
-  width: 0;
+.movies__list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.movies__list::-webkit-scrollbar-track {
+  box-shadow: #0e1538;
+  border-radius: 15px;
+}
+
+.movies__list::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 15px;
+  height: 100px;
 }
 
 .movies__item {
@@ -28,7 +39,15 @@ body {
 }
 
 .movies__heading {
-  color: #000;
+  color: #fff;
+}
+
+.result {
+  color: #fff;
+}
+
+.movies__result {
+  color: #fff !important;
 }
 
 .card {
@@ -40,7 +59,7 @@ body {
 
 .card:hover {
   transition: all 0.4s ease-in-out;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .card-title {
@@ -91,7 +110,7 @@ body {
 .btn-twotrailer {
   padding: 10px 15px;
   width: 150px;
-  color: blue;
+  color: #fff;
   border: 1.5px solid blue;
   border-radius: 4px;
   background-color: transparent;
@@ -100,8 +119,8 @@ body {
 .btn-infoo {
   margin-left: 25px;
   padding: 10px 15px;
-  color: #2BD4FF;
-  border: 1.5px solid #2BD4FF;
+  color: red;
+  border: 1.5px solid red;
   border-radius: 4px;
   background-color: transparent;
 }
@@ -109,8 +128,8 @@ body {
 .btn-bookmark {
   margin-left: 25px;
   padding: 10px 15px;
-  color: green;
-  border: 1.5px solid green;
+  color: #fff;
+  border: 1.5px solid #fff;
   border-radius: 4px;
   background-color: transparent;
 }
@@ -146,6 +165,7 @@ body {
   position: absolute;
   z-index: 10;
   padding: 10px;
+  top: 60px;
   background-color: #000;
   border-radius: 10px;
   transform: translateY(0);

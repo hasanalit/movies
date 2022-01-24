@@ -8,9 +8,6 @@ let elTrilerLink = "https://www.youtube.com/watch?v="
 elResult.textContent = movies.length
 
 
-
-
-
 const renderFilms = function(filmsArray, element, elInfoElement){
   filmsArray.forEach(movie => {
       //CREATE
@@ -21,7 +18,7 @@ const renderFilms = function(filmsArray, element, elInfoElement){
   let newCardTitle = document.createElement('h5')
   let newCardSection = document.createElement('div')
   let newCardYear = document.createElement('p')
-  let newCardYearImg = document.createElement('img')
+  let newCardYearImg = document.createElement('i')
   let newCardRatingSection = document.createElement('div')
   let newCardRatingImg = document.createElement('img')
   let newCardRating = document.createElement('p')
@@ -39,7 +36,7 @@ const renderFilms = function(filmsArray, element, elInfoElement){
   newCardBody.setAttribute('class', 'card-body')
   newCardTitle.setAttribute('class', 'card-title')
   newCardSection.setAttribute('class', 'card-section')
-  newCardYearImg.setAttribute('class', 'card-year-img')
+  newCardYearImg.setAttribute('class', 'card-year-img fas fa-calendar')
   newCardYear.setAttribute('class', 'card-year')
   newCardYearImg.setAttribute('src', './images/calendar.svg')
   newCardYearImg.setAttribute('width', '20px')
@@ -54,6 +51,9 @@ const renderFilms = function(filmsArray, element, elInfoElement){
   newBookmark.setAttribute('class', 'btn-bookmark btn')
 
 
+  newCardYearImg.style.color = '#fff'
+  newCardTitle.style.color = '#fff'
+
   //TEXT CONTENT
   newCardTitle.textContent = movie.title
   newCardYear.textContent = movie.year
@@ -63,6 +63,8 @@ const renderFilms = function(filmsArray, element, elInfoElement){
   newInfo.textContent = 'More info'
   newBookmark.textContent = 'Bookmark'
 
+  newCardRating.style.color = '#fff'
+  newCardYear.style.color = '#fff'
 
   elInfo.classList.add('hidden')
   elOverlay.classList.add('hidden-overlay')
