@@ -1,11 +1,45 @@
 let elOverlay = document.querySelector(".overlay")
-// let elHidden = document.querySelector(".hidden")
 let elResult = document.querySelector(".movies__result")
 let elList = document.querySelector(".movies__list")
 let elInfo = document.querySelector(".info")
+let elForm = document.querySelector("form")
+
+let elSeachbar = document.querySelector(".searchbar")
+let elSelect = document.querySelector(".select")
+let elSearchYear = document.querySelector(".search-year")
+
+
+
 let elTrilerLink = "https://www.youtube.com/watch?v="
 
 elResult.textContent = movies.length
+
+
+
+
+const genereteCategorie = function(movies){
+  const filteredCategories = []
+
+  movies.forEach(movie => {
+    movie.categories.forEach(categorie => {
+      if(!filteredCategories.includes(categorie)){
+        filteredCategories.push(categorie)
+      }
+    })
+  })
+
+  filteredCategories.forEach(categorie => {
+    let newOption = document.createElement('option')
+
+    newOption.value = categorie
+    newOption.textContent = categorie
+
+    elSelect.appendChild(newOption)
+  })
+}
+
+
+
 
 
 const renderFilms = function(filmsArray, element, elInfoElement){
@@ -26,6 +60,13 @@ const renderFilms = function(filmsArray, element, elInfoElement){
   let newTrailerLink = document.createElement('a')
   let newInfo = document.createElement('button')
   let newBookmark = document.createElement('button')
+
+
+  movie.categories.forEach(categorie => {
+    let newCategorie = document.createElement('li')
+
+    newCategorie.textContent = categorie
+  })
 
 
   //SET ATTRIBUTE
@@ -141,6 +182,7 @@ const renderFilms = function(filmsArray, element, elInfoElement){
 }
 
 renderFilms(movies, elList, elInfo)
+genereteCategorie(movies)
 
 elOverlay.addEventListener('click', function(evt){
   evt.preventDefault();
@@ -154,4 +196,47 @@ document.addEventListener('keydown', function(evt){
     elOverlay.classList.add('hidden-overlay')
     elInfo.classList.add('hidden')
   }
+})
+
+
+
+
+elForm.addEventListener('submit', function(evt) {
+  evt.preventDefault()
+
+  let selectValue = elSelect.value
+  elList.innerHTML = null
+
+  let filterResult = movies.filter((categorie) => selectValue === "all" || categorie.categories.includes(selectValue))
+
+  elResult.textContent = filterResult.length
+
+  renderFilms(filterResult, elList, elInfo)
+})
+
+
+
+
+
+
+
+
+elSeachbar.addEventListener('keyup', (evt) => {
+  const searchString = evt.target.value
+
+  let hpCharacters = movies.filter(movie => searchString.toLowerCase() === movie.title.slice(0, searchString.length).toLowerCase(), elList.innerHTML = null)
+  elResult.textContent = hpCharacters.length
+  renderFilms(hpCharacters, elList, movies)
+  genereteCategorie(hpCharacters)
+})
+
+elSearchYear.addEventListener('keyup', (evt) => {
+  const searchNum = evt.target.value
+
+  let numCharacter = movies.filter(movie => searchNum === movie.year.slice(0, searchNum.length), elList.innerHTML = null)
+
+  elResult.textContent = numCharacter.length
+
+  renderFilms(numCharacter, elList, movies)
+  genereteCategorie(numCharacter)
 })

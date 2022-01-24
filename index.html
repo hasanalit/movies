@@ -15,15 +15,15 @@
   <main class="site-main">
     <section class="container movies py-3 d-flex">
       <form class="form section">
+
+          <input type="text" class="form-control input-color searchbar mb-3" placeholder="Search title"  id="searchBar">
+
         <div class="mb-3">
-          <input type="text" class="form-control input-color" placeholder="Search title">
+          <input type="number" class="form-control input-color search-year" placeholder="Search year" id="search-year">
         </div>
-        <div class="mb-3">
-          <input type="text" class="form-control input-color" placeholder="Search year">
-        </div>
-        <div class="mb-3">
-          <input type="text" class="form-control input-color" placeholder="Categories">
-        </div>
+        <select class="select form-control input-color mb-3">
+          <option value="all">Genres</option>
+        </select>
         <div class="mb-3">
           <input type="text" class="form-control input-color" placeholder="Rating">
         </div>
