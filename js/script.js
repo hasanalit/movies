@@ -1,10 +1,14 @@
 let elOverlay = document.querySelector(".overlay")
+// let elHidden = document.querySelector(".hidden")
 let elResult = document.querySelector(".movies__result")
 let elList = document.querySelector(".movies__list")
 let elInfo = document.querySelector(".info")
 let elTrilerLink = "https://www.youtube.com/watch?v="
 
 elResult.textContent = movies.length
+
+
+
 
 
 const renderFilms = function(filmsArray, element, elInfoElement){
@@ -60,18 +64,22 @@ const renderFilms = function(filmsArray, element, elInfoElement){
   newBookmark.textContent = 'Bookmark'
 
 
+  elInfo.classList.add('hidden')
+  elOverlay.classList.add('hidden-overlay')
 
   // BTN
   newInfo.onclick = function(){
-    elOverlay.style.display = "inline"
-    elInfo.style.display = "inline"
-    newTrailerLink.style.width = "150px"
+    elInfo.classList.remove('hidden')
+    elOverlay.classList.remove('hidden-overlay')
+    elInfo.innerHTML = null
 
 
     let newHeroSection = document.createElement('div')
+    let newCloseBtn = document.createElement('i')
     let newBigImg = document.createElement('img')
     let newTitleSection = document.createElement('div')
     let newInfoTitle = document.createElement('h5')
+    let newTrailerTwoLink = document.createElement('a')
     let newSummary = document.createElement('p')
     let newLanguage = document.createElement('p')
 
@@ -79,22 +87,33 @@ const renderFilms = function(filmsArray, element, elInfoElement){
     newLanguage.style.color = "#fff"
 
     newHeroSection.setAttribute('class', 'info-section')
+    newCloseBtn.setAttribute('class', 'close-btn')
+    newCloseBtn.setAttribute('class', 'close-btn fas fa-times')
     newTitleSection.setAttribute('class', 'title-section')
     newBigImg.setAttribute('class', 'big-img')
     newInfoTitle.setAttribute('class', 'info-title')
     newBigImg.setAttribute('src', movie.smallThumbnail)
+    newTrailerTwoLink.setAttribute('class', 'btn-twotrailer btn')
+    newTrailerTwoLink.setAttribute('href', elTrilerLink + movie.youtubeId)
     newSummary.setAttribute('class', 'summary')
 
     newInfoTitle.textContent = movie.title
     newSummary.textContent = movie.summary
     newLanguage.textContent = movie.language
+    newTrailerTwoLink.textContent = 'Watch trailer'
 
+    newCloseBtn.addEventListener('click', function(){
+        elOverlay.classList.add('hidden-overlay')
+        elInfo.classList.add('hidden')
+    })
+
+    elInfoElement.appendChild(newCloseBtn)
     elInfoElement.appendChild(newHeroSection)
     newHeroSection.appendChild(newBigImg)
     newHeroSection.appendChild(newTitleSection)
     newTitleSection.appendChild(newInfoTitle)
     newTitleSection.appendChild(newLanguage)
-    newTitleSection.appendChild(newTrailerLink)
+    newTitleSection.appendChild(newTrailerTwoLink)
     elInfoElement.appendChild(newSummary)
   }
 
@@ -120,3 +139,9 @@ const renderFilms = function(filmsArray, element, elInfoElement){
 }
 
 renderFilms(movies, elList, elInfo)
+
+elOverlay.addEventListener('click', function(evt){
+  evt.preventDefault();
+  elOverlay.classList.add('hidden-overlay')
+  elInfo.classList.add('hidden')
+})

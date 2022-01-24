@@ -79,9 +79,18 @@
   background-color: transparent;
 }
 
+.btn-twotrailer {
+  padding: 10px 15px;
+  width: 150px;
+  color: blue;
+  border: 1.5px solid blue;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
 .btn-infoo {
   margin-left: 25px;
-  padding: 10px 20px;
+  padding: 10px 15px;
   color: #2BD4FF;
   border: 1.5px solid #2BD4FF;
   border-radius: 4px;
@@ -90,7 +99,7 @@
 
 .btn-bookmark {
   margin-left: 25px;
-  padding: 10px 20px;
+  padding: 10px 15px;
   color: green;
   border: 1.5px solid green;
   border-radius: 4px;
@@ -118,10 +127,16 @@
 .info {
   position: absolute;
   z-index: 10;
-  display: none;
   padding: 10px;
   background-color: #000;
   border-radius: 10px;
+  transform: translateY(0);
+  transition: 0.5s;
+}
+
+.hidden {
+  /* display: none; */
+  transform: translateY(-100vh);
 }
 
 .info-section {
@@ -149,7 +164,6 @@
 
 .overlay {
   position: absolute;
-  display: none;
   top: 0;
   left: 0;
   width: 100%;
@@ -157,4 +171,22 @@
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 5;
+  transform: translateY(0);
+  transition: 0.8s;
+}
+
+.hidden-overlay {
+
+  transform: translateY(-100vh);
+}
+
+.close-btn {
+  margin-left: 800px;
+  width: 20px;
+  height: 20px;
+}
+
+.close-btn {
+  color: #fff;
+  cursor: pointer;
 }
