@@ -1,3 +1,7 @@
+.movies {
+  height: 615px;
+}
+
 .movies__list {
   display: flex;
   flex-wrap: wrap;
@@ -6,7 +10,7 @@
   padding: 0;
   /* width: 100%; */
   width: 980px;
-  height: 100vh;
+  height: 615px;
   overflow-x: auto;
   list-style: none;
 }
@@ -99,3 +103,16 @@
   width: 100%;
   max-width: 500px;
 } */
+
+.positionn {
+  position: relative;
+}
+
+.info {
+  position: absolute;
+  z-index: 10;
+  display: none;
+  background-color: #000;
+  width: 800px;
+  height: 500px;
+}
