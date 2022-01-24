@@ -1,0 +1,101 @@
+.movies__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -20px;
+  margin-top: 2px;
+  padding: 0;
+  /* width: 100%; */
+  width: 980px;
+  height: 100vh;
+  overflow-x: auto;
+  list-style: none;
+}
+
+.movies__list::-webkit-scrollbar{
+  width: 0;
+}
+
+.movies__item {
+  margin: 20px;
+}
+
+.movies__heading {
+  color: #000;
+}
+
+.card {
+  width: 450px;
+}
+
+.card-title {
+  height: 100%;
+  max-height: 50px;
+  min-height: 50px;
+}
+
+.card-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-year {
+  margin: 0;
+}
+
+.card-year-img {
+  margin-right: 5px;
+}
+
+.rating-img-section {
+  display: flex;
+  align-items: center;
+}
+
+.card-text {
+  margin-left: 5px;
+}
+
+.btn-section {
+  margin-top: 20px;
+}
+
+.btn-trailer {
+  padding: 10px 20px;
+  color: blue;
+  border: 1.5px solid blue;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.btn-infoo {
+  margin-left: 25px;
+  padding: 10px 20px;
+  color: #2BD4FF;
+  border: 1.5px solid #2BD4FF;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.btn-bookmark {
+  margin-left: 25px;
+  padding: 10px 20px;
+  color: green;
+  border: 1.5px solid green;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.form {
+  margin-top: 70px;
+  margin-right: 50px;
+  width: 300px;
+}
+
+.search-form-btn {
+  width: 300px;
+}
+/* .form-control {
+  width: 100%;
+  max-width: 500px;
+} */
