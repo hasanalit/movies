@@ -1,3 +1,4 @@
+let elOverlay = document.querySelector(".overlay")
 let elResult = document.querySelector(".movies__result")
 let elList = document.querySelector(".movies__list")
 let elInfo = document.querySelector(".info")
@@ -62,20 +63,38 @@ const renderFilms = function(filmsArray, element, elInfoElement){
 
   // BTN
   newInfo.onclick = function(){
+    elOverlay.style.display = "inline"
     elInfo.style.display = "inline"
+    newTrailerLink.style.width = "150px"
 
 
+    let newHeroSection = document.createElement('div')
     let newBigImg = document.createElement('img')
+    let newTitleSection = document.createElement('div')
+    let newInfoTitle = document.createElement('h5')
     let newSummary = document.createElement('p')
+    let newLanguage = document.createElement('p')
 
     newSummary.style.color = "#fff"
+    newLanguage.style.color = "#fff"
 
+    newHeroSection.setAttribute('class', 'info-section')
+    newTitleSection.setAttribute('class', 'title-section')
     newBigImg.setAttribute('class', 'big-img')
+    newInfoTitle.setAttribute('class', 'info-title')
     newBigImg.setAttribute('src', movie.smallThumbnail)
+    newSummary.setAttribute('class', 'summary')
 
+    newInfoTitle.textContent = movie.title
     newSummary.textContent = movie.summary
+    newLanguage.textContent = movie.language
 
-    elInfoElement.appendChild(newBigImg)
+    elInfoElement.appendChild(newHeroSection)
+    newHeroSection.appendChild(newBigImg)
+    newHeroSection.appendChild(newTitleSection)
+    newTitleSection.appendChild(newInfoTitle)
+    newTitleSection.appendChild(newLanguage)
+    newTitleSection.appendChild(newTrailerLink)
     elInfoElement.appendChild(newSummary)
   }
 
