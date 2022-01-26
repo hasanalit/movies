@@ -47,6 +47,7 @@ const renderFilms = function(filmsArray, element, elInfoElement){
       //CREATE
   let newItem = document.createElement('li')
   let newCard = document.createElement('div')
+  let newSpecialImg = document.createElement('div')
   let newImg = document.createElement('img')
   let newCardBody = document.createElement('div')
   let newCardTitle = document.createElement('h5')
@@ -72,6 +73,7 @@ const renderFilms = function(filmsArray, element, elInfoElement){
   //SET ATTRIBUTE
   newItem.setAttribute('class', 'movies__item')
   newCard.setAttribute('class', 'card')
+  newSpecialImg.setAttribute('class', 'special-img')
   newImg.setAttribute('class', 'card-img-top')
   newImg.setAttribute('src', movie.smallThumbnail)
   newCardBody.setAttribute('class', 'card-body')
@@ -165,7 +167,8 @@ const renderFilms = function(filmsArray, element, elInfoElement){
   //APPEND
   element.appendChild(newItem)
   newItem.appendChild(newCard)
-  newCard.appendChild(newImg)
+  newCard.appendChild(newSpecialImg)
+  newSpecialImg.appendChild(newImg)
   newCard.appendChild(newCardBody)
   newCardBody.appendChild(newCardTitle)
   newCardBody.appendChild(newCardSection)
