@@ -3,12 +3,76 @@ let elResult = document.querySelector(".movies__result")
 let elList = document.querySelector(".movies__list")
 let elInfo = document.querySelector(".info")
 let elForm = document.querySelector("form")
+let elBookmarkList = document.querySelector(".bookmark__list")
 
 let elSeachbar = document.querySelector(".searchbar")
 let elSelect = document.querySelector(".select")
 let elSearchYear = document.querySelector(".search-year")
 
 
+const bookmarkArray = []
+
+
+const renderBookmarks = function(arr, elements){
+  arr.forEach(function(item) {
+    const newBookmarkItem = document.createElement('li')
+    const newBookmarkDelete = document.createElement('button')
+
+
+    newBookmarkItem.classList.add('bookmark__item')
+    newBookmarkDelete.classList.add('bookmark__delete')
+
+    newBookmarkItem.textContent = item.title
+    newBookmarkDelete.textContent = 'delete'
+
+    newBookmarkItem.style.color = '#fff'
+
+    newBookmarkDelete.dataset.deleteBtnId = item.title
+
+    elements.appendChild(newBookmarkItem)
+    newBookmarkItem.appendChild(newBookmarkDelete)
+  })
+}
+
+
+elBookmarkList.addEventListener('click', function(evt){
+  if(evt.target.matches(".bookmark__delete")){
+    const bookmarkDeleteItemBtn = evt.target.dataset.deleteBtnId
+
+    const foundBookmark = bookmarkArray.findIndex((bookmark) => bookmark.title === bookmarkDeleteItemBtn)
+    bookmarkArray.splice(foundBookmark, 1)
+
+    elBookmarkList.innerHTML = null
+    renderBookmarks(bookmarkArray, elBookmarkList)
+  }
+})
+
+
+
+
+
+
+
+elList.addEventListener('click', function(evt){
+  const isBookmarkBtn = evt.target.matches(".btn-bookmark")
+
+  if(isBookmarkBtn){
+    const bookmarkBtnId = evt.target.dataset.bookmarkBtnIdData
+    const foundFilm = movies.find(movie => movie.title === bookmarkBtnId)
+
+    if(!bookmarkArray.includes(foundFilm)){
+      bookmarkArray.push(foundFilm)
+
+      elBookmarkList.innerHTML = null
+      renderBookmarks(bookmarkArray, elBookmarkList)
+    }
+
+    console.log(bookmarkArray);
+  }
+
+
+
+})
 
 let elTrilerLink = "https://www.youtube.com/watch?v="
 
@@ -37,8 +101,6 @@ const genereteCategorie = function(movies){
     elSelect.appendChild(newOption)
   })
 }
-
-
 
 
 
@@ -111,6 +173,12 @@ const renderFilms = function(filmsArray, element, elInfoElement){
 
   elInfo.classList.add('hidden')
   elOverlay.classList.add('hidden-overlay')
+
+
+  // DATASET
+  newBookmark.dataset.bookmarkBtnIdData = movie.title
+
+
 
   // BTN
   newInfo.onclick = function(){

@@ -12,8 +12,9 @@
 <body>
   <header></header>
 
-  <main class="site-main">
+  <main class="site-main container">
     <section class="container movies py-3 d-flex">
+      <div>
       <form class="form section">
 
           <input type="text" class="form-control input-color searchbar mb-3" placeholder="Search title"  id="searchBar">
@@ -30,18 +31,20 @@
         <button type="submit" class="search-form-btn">Submit</button>
       </form>
 
+      <ul class="bookmark__list"></ul>
+    </div>
+
       <div class="section">
         <h1 class="movies__heading text-center">Movies Catalog</h1>
 
         <h5 class="d-inline-block p-2 rounded result">Result Count: <span class="movies__result text-black">0</span></h5>
 
-        <ul class="movies__list">
-        </ul>
+        <ul class="movies__list"></ul>
       </div>
 
 
-      <div class="info">
-      </div>
+      <div class="info"></div>
+
 
       <div class="overlay"></div>
     </section>
