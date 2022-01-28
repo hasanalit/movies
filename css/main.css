@@ -3,7 +3,7 @@ body {
 }
 
 .movies {
-  height: 615px;
+  height: 700px;
 }
 
 .movies__list {
@@ -14,7 +14,7 @@ body {
   padding: 0;
   /* width: 100%; */
   width: 1000px;
-  height: 615px;
+  height: 700px;
   overflow-x: auto;
   list-style: none;
 }
@@ -232,13 +232,13 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 5;
-  /* transform: translateY(0);
-  transition: 0.8s; */
+  transform: translateY(0);
+  transition: 0.8s;
 }
 
 .hidden-overlay {
-  display: none;
-  /* transform: translateY(-100vh); */
+  /* display: none; */
+  transform: translateY(-100vh);
 }
 
 .close-btn {
@@ -259,4 +259,49 @@ body {
 
 .big-img:hover {
   transform: scale(1.03);
+}
+
+.bookmark__list {
+  margin-top: 20px;
+  padding: 0;
+  height: 460px;
+  overflow-x: auto;
+  list-style: none;
+}
+
+.bookmark__list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.bookmark__list::-webkit-scrollbar-track {
+  box-shadow: #0e1538;
+  border-radius: 15px;
+}
+
+.bookmark__list::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 15px;
+  height: 100px;
+}
+
+.bookmark__item {
+  padding: 20px 10px;
+  background: #394272;
+  width: 300px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.bookmark__item + .bookmark__item{
+  margin-top: 7px;
+}
+
+.bookmark__delete {
+  display: block;
+  margin: 0;
+  margin-top: 6px;
+  padding: 8px 15px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
 }
